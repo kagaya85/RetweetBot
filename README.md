@@ -15,3 +15,6 @@ Just make more convenience for people in our daily life (*^_^*)
 
 ### 2018年7月5日更新  
 1. 考虑加入googleAPI实现更多功能
+2. 加入学习功能：在群中回复“学习A回答B”即可让机器人在群中接受到消息A后自动回复B
+3. 还未加入对表情字符的判定，存在bug
+4. 查询/删除 + 对应关键字可实现对应功能
