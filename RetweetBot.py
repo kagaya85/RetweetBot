@@ -1,6 +1,5 @@
 import tweepy
 import random
-import time
 import KeysAndTokens as kt
 import datetime
 from qqbot import qqbotsched
@@ -44,12 +43,12 @@ def mytask(bot):
                 for each in groupList:
                     for tweet in new_tweets:
                         bot.SendTo(each, 'time: {}\n{}'.format(tweet.created_at, tweet.full_text))
-                 # 发送给好友
-                friend = bot.List('buddy', 'Ta')
-                if friend:
-                    f = friend[0]
-                    for tweet in new_tweets:
-                        bot.SendTo(f, 'time: {}\n{}'.format(tweet.created_at, tweet.full_text))
+            # 发送给好友
+            friend = bot.List('buddy', 'Ta')
+            if friend:
+                f = friend[0]
+                for tweet in new_tweets:
+                    bot.SendTo(f, 'time: {}\n{}'.format(tweet.created_at, tweet.full_text))
     except Exception as err:
         friend = bot.List('buddy', 'Ta')
         if friend:
@@ -64,7 +63,7 @@ def onQQMessage(bot, contact, member, content):
                 bot.SendTo(contact, "time: {}\n{}".format(alltweets[0].created_at, alltweets[0].full_text))
             elif content == 'hi':
                 bot.SendTo(contact, "Hello！アメリカ生まれの大型正規空母Saratogaです。歴史深い由緒ある名前を頂いています。あの大きな戦いでは、最初から最後まで頑張ったんです。")
-            elif content == '--stop' + pw:
+            elif content == '--stop':
                 bot.SendTo(contact, 'closed')
                 bot.Stop()
             # elif content == '--list':
