@@ -35,9 +35,13 @@ def mytask(bot):
 
     try:
         new_tweets = api.user_timeline(screen_name, count = 5, tweet_mode="extended", since_id = oldest_id)
-        alltweets.extend(new_tweets)
-        oldest_id = new_tweets[0].id
-        if len(new_tweets) > 0:     
+        if len(new_tweets) > 0:
+            alltweets.extend(new_tweets)
+            if len(new_tweets) > 1:
+                oldest_id = new_tweets[0].id
+            else:
+                oldest_id = new_tweets.id
+
             if len(groupList) > 0:
                 # 发送给所有群
                 for each in groupList:
